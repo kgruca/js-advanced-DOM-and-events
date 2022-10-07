@@ -47,9 +47,46 @@ console.log(document.documentElement);
 console.log(document.head);
 console.log(document.body);
 
+const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 console.log(allSections);
 // logs a nodelist of 4 elems
 
 const allButtons = document.getElementsByTagName('button');
 console.log(allButtons);
+
+// Creating and inserting elements
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+// message.textContent = `We use cookies for improved functionality 
+// and analytics.`;
+message.innerHTML = `We use cookies for improved functionality 
+and analytics. <button class="btn btn--close-cookie">Got it!</button>`;
+
+// can add something before a parent element
+//header.prepend(message);
+// can also add after a parent element
+header.append(message);
+// the message was moved to the bottom of the screen, even though the code
+// above prepends it
+// because it's now a live element living in the DOM, it cannot be in multiple 
+// places at the same time 
+
+// if we DO want it to appear in multiple places at the same time, then 
+// we need to clone it first
+// commenting out the append message above
+//header.append(message.cloneNode(true));
+// true in this situation means that all the child elements will be copied
+// now, the same cookie message appears in both places
+
+// header.before(message);
+// this will add the message element BEFORE the header AS A SIBLING
+// header.after(message)
+// this will add the message element AFTER the header AS A SIBLING
+
+// Delete elements
+document.querySelector('.btn--close-cookie').addEventListener('click', 
+  function() {
+    message.remove();
+});
+// now when the button is clicked then the message disappears
