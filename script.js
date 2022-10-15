@@ -90,3 +90,14 @@ document.querySelector('.btn--close-cookie').addEventListener('click',
     message.remove();
 });
 // now when the button is clicked then the message disappears
+
+
+// NEW SECTION
+// Styles
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+// get styles by
+console.log(getComputedStyle(message));
+// logs all styles
