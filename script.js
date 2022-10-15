@@ -101,3 +101,8 @@ message.style.width = '120%';
 // get styles by
 console.log(getComputedStyle(message));
 // logs all styles
+console.log(getComputedStyle(message).color);
+// logs rgb(187, 187, 187)
+
+// to change style, ex.
+message.style.height = getComputedStyle(message).height + 40 + 'px';
