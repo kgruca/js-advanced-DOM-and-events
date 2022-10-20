@@ -109,6 +109,10 @@ document.querySelector('.nav').addEventListener('click', function(e) {
 // can stop this behavior by putting a stopPropagation() event into any of the event listeners above.
 // for example, putting e.stopPropagation() into nav__link will result in the color changing only on nav__link
 
+// to reverse this behavior (make the event occur when the event is passing down from document to the child element), can
+// specify a third parameter in addEventListener(). adding 'true' will cause nav to be changed first, then nav__links, then 
+// nav__link when clicking of features (nav__link)
+
 
 /*
 // NEW SECTION
