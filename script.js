@@ -84,6 +84,7 @@ const randomColor = () =>
 
 document.querySelector('.nav__link').addEventListener('click', function(e) {
     this.style.backgroundColor = randomColor();
+    // e.stopPropagation();
 });
 
 document.querySelector('.nav__links').addEventListener('click', function(e) {
@@ -104,6 +105,9 @@ document.querySelector('.nav').addEventListener('click', function(e) {
 // nav on the way back
 // nav__link is not touched when you click elsewhere in the nav__links element
 // nav__link and nav__links aren't touched when you click on the nav elem
+
+// can stop this behavior by putting a stopPropagation() event into any of the event listeners above.
+// for example, putting e.stopPropagation() into nav__link will result in the color changing only on nav__link
 
 
 /*
