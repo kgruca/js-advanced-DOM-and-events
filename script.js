@@ -72,6 +72,42 @@ btnScrollTo.addEventListener('click', function(e) {
 
 
 // NEW SECTION
+// event propagation aka bubbling
+
+const randomInt = (min, max) => 
+    Math.floor(Math.random() * (max - min + 1) +1);
+
+const randomColor = () => 
+    `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
+
+// attach the random color to the features link and the parent element too
+
+document.querySelector('.nav__link').addEventListener('click', function(e) {
+    this.style.backgroundColor = randomColor();
+});
+
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+    this.style.backgroundColor = randomColor();
+});
+
+document.querySelector('.nav').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor();
+});
+
+// clicking on the features link changes the color of the features link, the nav__links, and nav. 
+// clicking on the nav__links changes the nav__links and nav
+// clicking on the nav changes just the nav
+
+// this is because the action first bubbles down from the document element to the child element that is handling the event
+// then, the action bubbles back up towards the document element
+// so clicking of features link will hit the child element nav__link, then bubble back up and hits the nav__links and
+// nav on the way back
+// nav__link is not touched when you click elsewhere in the nav__links element
+// nav__link and nav__links aren't touched when you click on the nav elem
+
+
+/*
+// NEW SECTION
 // types of events and event handlers
 const h1 = document.querySelector('h1');
 
@@ -96,7 +132,6 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 // defining it directly in HTML code 
 
 
-/*
 // NEW SECTION
 // Selecting, Creating, and Deleting Elements
 
