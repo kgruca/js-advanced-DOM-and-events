@@ -1,13 +1,17 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+// implement smooth scrolling
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
+
+///////////////////////////////////////
+// Modal window
 const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
@@ -30,10 +34,9 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-// implement smooth scrolling
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
 
+///////////////////////////////////////
+// button scrolling
 btnScrollTo.addEventListener('click', function(e) {
     const s1coords = section1.getBoundingClientRect();
     console.log(s1coords);
@@ -65,12 +68,25 @@ btnScrollTo.addEventListener('click', function(e) {
     section1.scrollIntoView({behavior: 'smooth'});
 });
 
+///////////////////////////////////////
+// Page Navigation 
+
+document.querySelectorAll('.nav__link').forEach(
+  function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      const id = this.getAttribute('href');
+      document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+    });
+});
+
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 // LECTURES
 
 
+/*
 // NEW SECTION
 // event propagation aka bubbling
 
@@ -114,7 +130,6 @@ document.querySelector('.nav').addEventListener('click', function(e) {
 // nav__link when clicking of features (nav__link)
 
 
-/*
 // NEW SECTION
 // types of events and event handlers
 const h1 = document.querySelector('h1');
