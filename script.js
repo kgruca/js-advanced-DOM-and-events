@@ -98,6 +98,32 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 // LECTURES
 
 
+// NEW SECTION
+// DOM traversing
+const h1 = document.querySelector('h1');
+
+// going downwards - selecting child elements
+// if selecting by a specific class:
+
+console.log(h1.querySelectorAll('.highlight'));
+// logs a nodelist of two elements (these ones are direct children of h1, but all other descendents
+// would also be logged if they existed, no matter how deeply they go from the h1 element). 
+// elems with the 'highlight' class would NOT be logged if they weren't descendents of h1
+
+// if need to grab direct child NODES of an elem:
+console.log(h1.childNodes);
+// logs a nodelist of 9 nodes, not only html elems. so this also logs texts, comments, etc.
+
+// for direct child elements:
+console.log(h1.children);
+// logs a collection of 3 elements - doesn't include nodes that aren't html elements (text, comment, etc)
+
+
+
+
+
+
+
 /*
 // NEW SECTION
 // event propagation aka bubbling
