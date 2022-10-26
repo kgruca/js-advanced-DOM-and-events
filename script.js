@@ -104,6 +104,11 @@ const tabsContent = document.querySelectorAll('.operations__content');
 tabsContainer.addEventListener('click', function(e) {
     const clicked = e.target.closest('.operations__tab');
     console.log(clicked);
+
+    // ignore clicks where result is null
+    // called a Guard Clause:
+    if (!clicked) return;
+
     clicked.classList.add('operations__tab--active');
 });
 
