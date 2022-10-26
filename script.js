@@ -113,6 +113,10 @@ tabsContainer.addEventListener('click', function(e) {
     // basically, remove the class from all the buttons:
     tabs.forEach(t => t.classList.remove('operations__tab--active'));
     clicked.classList.add('operations__tab--active');
+
+    // activate content area and remove any other content area
+    tabsContent.forEach(t => t.classList.remove('operations__content--active'));
+    document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active'); 
 });
 
 
