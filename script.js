@@ -101,7 +101,10 @@ const tabsContent = document.querySelectorAll('.operations__content');
 
 // now use event delegation
 // tab container is the parent element of all the buttons
+tabsContainer.addEventListener('click', function(e) {
+    const clicked = e.target.closest('.operations__tab');
 
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////
