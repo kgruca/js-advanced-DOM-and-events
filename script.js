@@ -109,6 +109,9 @@ tabsContainer.addEventListener('click', function(e) {
     // called a Guard Clause:
     if (!clicked) return;
 
+    // make sure .operations__tab--active is removed from buttons that aren't clicked
+    // basically, remove the class from all the buttons:
+    tabs.forEach(t => t.classList.remove('operations__tab--active'));
     clicked.classList.add('operations__tab--active');
 });
 
