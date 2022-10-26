@@ -93,11 +93,28 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
     }
 });
 
+
+// Tabbed components
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelectorAll('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+// now use event delegation
+// tab container is the parent element of all the buttons
+
+
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 // LECTURES
 
 
+// NEW SECTION
+// tabbed components
+
+
+
+/*
 // NEW SECTION
 // DOM traversing
 const h1 = document.querySelector('h1');
@@ -118,13 +135,37 @@ console.log(h1.childNodes);
 console.log(h1.children);
 // logs a collection of 3 elements - doesn't include nodes that aren't html elements (text, comment, etc)
 
+// firstElementChild and lastElementChild choose the first and last direct child elems of the given element
+h1.firstElementChild.style.color = 'white';
+// makes the color of the first span.highlight white
+h1.lastElementChild.style.color = 'black';
+// makes the color the the last span.highlight black
 
 
+// going updwards - selecting parent elems
 
+console.log(h1.parentNode);
+console.log(h1.parentElement); 
+// in this case, both log the same result 
 
+// to return the closest parent element:
+ h1.closest('.header');
 
+ // going sideways - siblings:
+ console.log(h1.previousElementSibling);
+ console.log(h1.nextElementSibling);
 
-/*
+ console.log(h1.previousSibling);
+ console.log(h1.nextSibling);
+
+ // to get all the siblings:
+ console.log(h1.parentElement.children);
+
+ // can get an array of all the siblings by doing: [...h1.parentElement.children]
+
+ // let's say we want to change the style of the siblings of the element, but not the elem itself
+ 
+
 // NEW SECTION
 // event propagation aka bubbling
 
