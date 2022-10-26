@@ -96,14 +96,15 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 
 // Tabbed components
 const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelectorAll('.operations__tab-container');
+const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 
 // now use event delegation
 // tab container is the parent element of all the buttons
 tabsContainer.addEventListener('click', function(e) {
     const clicked = e.target.closest('.operations__tab');
-
+    console.log(clicked);
+    clicked.classList.add('operations__tab--active');
 });
 
 
