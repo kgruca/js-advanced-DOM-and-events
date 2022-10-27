@@ -102,8 +102,6 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 });
 
 
-
-
 // now use event delegation
 // tab container is the parent element of all the buttons
 tabsContainer.addEventListener('click', function(e) {
@@ -126,7 +124,16 @@ tabsContainer.addEventListener('click', function(e) {
 
 
 // Menu fade animation
+nav.addEventListener('mouseover', function(e) {
+    if(e.target.classList.contains('nav__link')) {
+      const link = e.target;
+      const 
+    }
+});
 
+nav.addEventListener('mouseout', function(e){
+    
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////
