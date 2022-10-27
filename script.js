@@ -141,6 +141,17 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
 
+// Sticky Navigation
+const initialCoords = section1.getBoundingClientRect();
+
+// note - scroll event is not really efficient, because it fires too many events, but is still useful in some situations
+// it will be used for practice below, but there's a way to make the code below more efficient
+window.addEventListener('scroll', function(e) {
+    if (window.scrollY > initialCoords.top) nav.classList.add('sticky'); 
+    else nav.classList.remove('sticky');
+})
+
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 // LECTURES
