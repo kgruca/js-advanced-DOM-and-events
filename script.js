@@ -146,10 +146,29 @@ const initialCoords = section1.getBoundingClientRect();
 
 // note - scroll event is not really efficient, because it fires too many events, but is still useful in some situations
 // it will be used for practice below, but there's a way to make the code below more efficient
-window.addEventListener('scroll', function(e) {
-    if (window.scrollY > initialCoords.top) nav.classList.add('sticky'); 
-    else nav.classList.remove('sticky');
-})
+// window.addEventListener('scroll', function(e) {
+//     if (window.scrollY > initialCoords.top) nav.classList.add('sticky'); 
+//     else nav.classList.remove('sticky');
+// });
+
+
+// better way to implement sticky navigation:
+// using the Intersection Server API
+
+const obsCallback = function(entries, observer) {
+    entries.forEach(entry => {
+
+    });
+};
+
+const obsOptions = {
+    root: null,
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+observer.observe(section1);
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
