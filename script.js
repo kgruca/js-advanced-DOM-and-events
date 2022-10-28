@@ -155,19 +155,36 @@ const initialCoords = section1.getBoundingClientRect();
 // better way to implement sticky navigation:
 // using the Intersection Server API
 
-const obsCallback = function(entries, observer) {
-    entries.forEach(entry => {
+// const obsCallback = function(entries, observer) {
+//     entries.forEach(entry => {
 
+//     });
+// };
+
+// const obsOptions = {
+//     root: null,
+//     threshold: [0, 0.2]
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+// observer.observe(section1);
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function(entries) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) nav.classList.add('sticky');
+    else nav.classList.remove('sticky');  
+}
+
+const headerObserver = new IntersectionObserver(
+    stickyNav, {
+        root: null, 
+        threshold: 0,
+        rootMargin: `-${navHeight}px`
     });
-};
-
-const obsOptions = {
-    root: null,
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver(obsCallback, obsOptions);
-observer.observe(section1);
+headerObserver.observe(header);
 
 
 
