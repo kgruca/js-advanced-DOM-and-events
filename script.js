@@ -209,7 +209,7 @@ const sectionObserver = new IntersectionObserver(
 
 allSections.forEach(function(section) {
     sectionObserver.observe(section);
-    section.classList.add('section--hidden');
+    // section.classList.add('section--hidden');
 });
 
 
@@ -242,6 +242,11 @@ const imgObserver = new IntersectionObserver(loadImg,
 
 imgTargets.forEach(img => imgObserver.observe(img));
 
+
+// building a slide component
+const slides = document.querySelectorAll('.slide');
+slides.forEach((s, i) => s.style.transform = `translateX(${100 * i}%)`)
+// 0%, 100%, 200%, 300%
 
 
 ///////////////////////////////////////////////////////////////////////////////
