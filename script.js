@@ -350,6 +350,13 @@ window.addEventListener('load', function(e){
     console.log('Page fully loaded');
 });
 
+// unload - gets created immediately before a user leaves a page; can be used to ask a user if they want to leave
+window.addEventListener('beforeunload', function(e) {
+    e.preventDefault();
+    console.log(e);
+    e.returnValue = '';
+}); 
+
 
 /*
 // NEW SECTION
