@@ -251,12 +251,14 @@ const btnRight = document.querySelector('.slider__btn--right');
 let curSlide = 0;
 const maxSlides = slides.length;
 
-const slider = document.querySelector('.slider');
-slider.style.transform = 'scale(0.4)';
-slider.style.overflow = 'visible';
+const dotContainer = document.querySelector('.dots');
+
+// const slider = document.querySelector('.slider');
+// slider.style.transform = 'scale(0.4)';
+// slider.style.overflow = 'visible';
 
 const goToSlide = function(slide) {
-    slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - curSlide)}%)`);
+    slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - slide)}%)`);
 };
 
 goToSlide(0);
@@ -283,6 +285,12 @@ const prevSlide = function() {
 // next slide
 btnRight.addEventListener('click', nextSlide);
 btnleft.addEventListener('click', prevSlide);
+
+// allow slider to be used with arrow keys
+document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft') prevSlide();
+    e.key ==='ArrowRight' && nextSlide();
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////
