@@ -271,8 +271,18 @@ const nextSlide = function() {
     goToSlide(curSlide);
 };
 
+const prevSlide = function() {
+    if (curSlide === 0) {
+        curSlide = maxSlides - 1;
+    } else {
+        curSlide--;
+    }
+    goToSlide(curSlide);
+}; 
+
 // next slide
 btnRight.addEventListener('click', nextSlide);
+btnleft.addEventListener('click', prevSlide);
 
 
 ///////////////////////////////////////////////////////////////////////////////
