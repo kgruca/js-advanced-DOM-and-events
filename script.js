@@ -255,23 +255,24 @@ const slider = document.querySelector('.slider');
 slider.style.transform = 'scale(0.4)';
 slider.style.overflow = 'visible';
 
-slides.forEach((s, i) => s.style.transform = `translateX(${100 * i}%)`)
-// 0%, 100%, 200%, 300%
-
 const goToSlide = function(slide) {
     slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - curSlide)}%)`);
-}
+};
 
-// next slide
-btnRight.addEventListener('click', function() {
+goToSlide(0);
+
+const nextSlide = function() {
     if (curSlide === maxSlides - 1) {
         curSlide = 0;
     } else {
         curSlide++;
     }
 
-    goToSlide(curSlide);    
-});
+    goToSlide(curSlide);
+};
+
+// next slide
+btnRight.addEventListener('click', nextSlide);
 
 
 ///////////////////////////////////////////////////////////////////////////////
