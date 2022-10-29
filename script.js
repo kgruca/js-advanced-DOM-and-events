@@ -258,6 +258,10 @@ slider.style.overflow = 'visible';
 slides.forEach((s, i) => s.style.transform = `translateX(${100 * i}%)`)
 // 0%, 100%, 200%, 300%
 
+const goToSlide = function(slide) {
+    slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - curSlide)}%)`);
+}
+
 // next slide
 btnRight.addEventListener('click', function() {
     if (curSlide === maxSlides - 1) {
@@ -266,7 +270,7 @@ btnRight.addEventListener('click', function() {
         curSlide++;
     }
 
-    slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - curSlide)}%)`)
+    goToSlide(curSlide);    
 });
 
 
